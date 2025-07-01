@@ -68,7 +68,7 @@ jobs:
 
 
       - name: Setup Java and Maven
-        uses: evryfs/composite-java-action@v0.3.9
+        uses: evryfs/composite-java-action@v0.4.7
         with:
           distribution: temurin
           java-version: '21'
