@@ -1,0 +1,49 @@
+name: sf-build
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+# above concurrency to control multiple builds
+on:
+  #when pushed to develop run workflow
+  push:
+    branches: [ 'main','feature/**' ]
+  #when pull-request created to develop run workflow
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      forceUpload:
+        description: Trigger Manual Build
+        type: boolean
+        required: false
+
+jobs:
+  build:
+    name: 'build'
+    permissions:
+      contents: read
+    runs-on: ubuntu-24.04 #doesn't use any fss library so build independent (github runner)
+    steps:
+      - name: checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # actions/checkout@v4.2.2
+        with:
+          fetch-depth: 1
+
+      - name: setup java 21
+        uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # actions/setup-java@v4.7.1
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          overwrite-settings: false
+
+      - name: setup maven 3.9.x
+        uses: stCarolas/setup-maven@d6af6abeda15e98926a57b5aa970a96bb37f97d1  # stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.5
+
+      - name: compile and package # https://gist.github.com/mayurchhapra/3508291362c42d983fe5774e71f70207
+        run: |
+          mvn clean package -Dmaven.test.skip=true
+          echo '### Status ✈️' >> $GITHUB_STEP_SUMMARY
+          cat  target/classes/git.properties >> $GITHUB_STEP_SUMMARY
+

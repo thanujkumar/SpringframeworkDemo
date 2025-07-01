@@ -1,0 +1,5 @@
+name: "TRG CodeQL config"
+# doesn't work for compiled languages
+# https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#specifying-directories-to-scan
+paths-ignore:
+  - '**/target/generated-sources'
