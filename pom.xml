@@ -37,6 +37,7 @@
         <versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>
         <native-build-tools-plugin.version>0.9.27</native-build-tools-plugin.version>
         <flatten.maven.plugin.version>1.6.0</flatten.maven.plugin.version>
+        <git-commit-id.version>9.0.2</git-commit-id.version>
     </properties>
 
     <build>
@@ -218,6 +219,32 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>io.github.git-commit-id</groupId>
+                <artifactId>git-commit-id-maven-plugin</artifactId>
+                <version>${git-commit-id.version}</version>
+                <executions>
+                    <execution>
+                        <id>get-the-git-infos</id>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                        <phase>initialize</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                    <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+                    <includeOnlyProperties>
+                        <includeOnlyProperty>git.build.*</includeOnlyProperty>
+                        <includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
+                    </includeOnlyProperties>
+                    <commitIdGenerationMode>full</commitIdGenerationMode>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
