@@ -45,7 +45,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3.2.0
+        uses: actions/checkout@v4.2.2
 
       #https://github.blog/changelog/2025-01-10-code-scanning-codeql-action-v2-is-now-deprecated/
       # Initializes the CodeQL tools for scanning.
