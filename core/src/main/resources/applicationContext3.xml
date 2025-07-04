@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- org.tk.spring.wiring.both.xml_annotation  has example where defined beans here are processed any annotations
+     -->
+    <context:annotation-config/>
+
+    <bean id="beanA" class="org.tk.spring.wiring.ex4.auto.sametype.BeanA"/>
+    <bean id="beanB1" class="org.tk.spring.wiring.ex4.auto.sametype.BeanB"/>
+    <bean id="beanB2" class="org.tk.spring.wiring.ex4.auto.sametype.BeanB"/>
+    <bean id="beanB3" class="org.tk.spring.wiring.ex4.auto.sametype.BeanB"/>
+</beans>
