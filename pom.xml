@@ -52,7 +52,7 @@
         <mapstruct.version>1.6.3</mapstruct.version>
         <!-- required for @PostConstruct and @PreDestroy -->
         <jakarta.annotation.version>1.3.5</jakarta.annotation.version>
-        <apache.lang3.common.version>3.17.0</apache.lang3.common.version>
+        <apache.lang3.common.version>3.18.0</apache.lang3.common.version>
         <cache-api.version>1.1.1</cache-api.version>
         <ehcache.version>3.10.8</ehcache.version>
         <sl4j.version>2.0.17</sl4j.version>
