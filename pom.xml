@@ -46,7 +46,7 @@
         <git-commit-id.version>9.0.2</git-commit-id.version>
 
         <!-- spring framework version -->
-        <spring.version> 6.2.8</spring.version>
+        <spring.version>6.2.12</spring.version>
         <aspectj.version>1.9.24</aspectj.version>
         <lombok.version>1.18.38</lombok.version>
         <mapstruct.version>1.6.3</mapstruct.version>
